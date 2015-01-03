@@ -1,0 +1,8 @@
+Implement a String class in C++ with basic functionality like comparison, concatenation, input and output. 
+Please also provide some test cases and using scenarios (sample code of using this class).
+Please do not use MFC, STL and other libaraies in your implementation.
+
+需要重载下面的运算符：
+(1) <、>、== 和 != 比较运算符
+(2) += 连接运算符以及赋值运算符
+(3) << >> 输入输出运算符
