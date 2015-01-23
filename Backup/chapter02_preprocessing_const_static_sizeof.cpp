@@ -291,13 +291,13 @@ using namespace std;
 /****************/
 /* Interview 12 */
 /****************/
-// class widget
+// class Widget
 // {
 // public:
-// 	widget() {
+// 	Widget() {
 // 		count++;
 // 	}
-// 	~widget() {
+// 	~Widget() {
 // 		--count;
 // 	}
 
@@ -307,27 +307,27 @@ using namespace std;
 // private:
 // 	static int count;
 // };
-// int widget::count = 0;
+// int Widget::count = 0;
 // int main()
 // {
-// 	widget x, y;
-// 	cout << "The Num is " << widget::num() << endl;
-// 	if (widget::num() > 1)
+// 	Widget x, y;
+// 	cout << "The Num is " << Widget::num() << endl;
+// 	if (Widget::num() > 1)
 // 	{
-// 		widget x, y, z;
-// 		cout << "The Num is " << widget::num() << endl;
+// 		Widget x, y, z;
+// 		cout << "The Num is " << Widget::num() << endl;
 // 	}
-// 	widget z;
-// 	cout << "The Num is " << widget::num() << endl;
+// 	Widget z;
+// 	cout << "The Num is " << Widget::num() << endl;
 // 	return 0;
 // }
 
 /****************/
 /* Interview 11 */
 /****************/
-// static 全局变量与普通全局变量的区别是，static全局变 量只初始化一次，防止在其他文件单元中被引用。
+// static 全局变量与普通全局变量的区别是，static全局变量只初始化一次，防止在其他文件单元中被引用。
 // static 局部变量和普通变量的区别是，static局部变量只被初始化一次，下一次依据上一次结果值。
-// static 函数与普通函数的区别，static函数在内存中只有 一份，普通函数在每个被调用中维持一份复制品。
+// static 函数与普通函数的区别，static函数在内存中只有一份，普通函数在每个被调用中维持一份复制品。
 
 /****************/
 /* Interview 10 */
@@ -339,7 +339,7 @@ using namespace std;
 /***************/
 /* Interview 9 */
 /***************/
-// const用于定义常量：const定义的常量编译器可以对其进 行数据静态类型安全检查
+// const用于定义常量：const定义的常量编译器可以对其进行数据静态类型安全检查
 
 // const修饰函数形式参数；当输入参数为用户自定义类型和抽象数据类型时，应该将“值传递”改为“cosnt &传递”，可以提高效率。
 // void fun(A a);

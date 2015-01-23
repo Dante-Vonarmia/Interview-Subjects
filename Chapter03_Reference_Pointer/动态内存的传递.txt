@@ -1,0 +1,28 @@
+比较分析两个代码段的输出——动态内存的传递
+/* e.q. 1 */
+char *GetMemory()
+{
+	// char p[] = "hello world";
+	static char p[] = "hello world";
+	return p;
+}
+
+void Test(void)
+{
+	char *str = NULL;
+	str = GetMemory();
+	printf(str);
+}
+
+/* e.q. 2 */
+void GetMemory(char* p)
+{
+	p = (char*)malloc(100); // no returning value;
+}
+void Test(void)
+{
+	char *str = NULL;
+	GetMemory(str);
+	strcpy(str, "hello world"); // Crash!!  str is still "NULL".
+	printf(str);
+}

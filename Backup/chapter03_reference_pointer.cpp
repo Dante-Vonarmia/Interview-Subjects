@@ -435,8 +435,8 @@ using namespace std;
 /*******************/
 /* Interview 22&23 */
 /*******************/
-// 函数指针 & 指针函数
-// 返回类型标识符 *返回名称(形式参数表) {函数体}
+// // 函数指针 & 指针函数
+// // 返回类型标识符 *返回名称(形式参数表) {函数体}
 // int max(int x, int y) {
 // 	return (x > y ? x : y);
 // };
@@ -450,6 +450,7 @@ using namespace std;
 // 	float score[] = {10, 20, 30, 40};
 // 	int (*p)(int, int);
 // 	float *q = find(score + 1, 1);
+// 	int a;
 
 // 	p = max;
 // 	a = (*p)(1, 2);

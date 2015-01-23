@@ -1,0 +1,31 @@
+// 指针声明
+int a;					// An integer
+int *a;					// A pointer to an integer
+int **a;				// A pointer to a pointer to an integer
+int a[10];				// An array of 10 integers
+int *a[10];				// An array of 10 pointers to integers
+int (*a)[10];			// A pointer to an array of 10 integers
+int (*a)(int);			// A pointer to a function that takes an integer as an argument and returns an integer.
+int (*a[10])(int);		// An array of 10 pointers to functions that takes an integer argument and return an integer.
+
+右左法则：
+首先从最里面的圆括号看起，然后往右看，再往左看。
+每当遇到圆括号的时候，就应该掉转阅读方向。
+一旦解析完圆括号里面所有的东西，就跳出圆括号。
+重复这个过程，直到整个声明解析完成。
+
+// e.q.
+int (*func)(int *p);
+函数指针，有 int* 类型的形参，返回值类型是 int。
+
+int (*func)(int *p, int (*f)(int*));
+函数指针，有 int* 类型形参和 int*(int*) 类型形参， 返回值类型是 int。
+
+int (*func[5])(int *p);
+函数数组，函数具有 int* 类型的形参，返回值类型为 int。
+
+int (*(*func)[5])(int *p);
+指针数组，这个数组的元素是函数指针，指针指向具有 int* 类型的形参，返回值类型是 int。
+
+int (*(*func)(int *p))[5];
+函数指针，具有 int* 类型的形参，返回值是指向数组的指针，所指向的数组的元素是具有 5 个 int 元素的数组。
