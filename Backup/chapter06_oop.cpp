@@ -799,13 +799,13 @@ using namespace std;
 // int main()
 // {
 // 	Derived *pTest1 = new Derived(); // Derived class pointer
-// 	pTest1 -> DoSomething();
+// 	pTest1->DoSomething();
 // 	delete pTest1;
 
 // 	cout << endl;
 
 // 	Base *pTest2 = new Derived(); // Base class pointer
-// 	pTest2 -> DoSomething();
+// 	pTest2->DoSomething();
 // 	delete pTest2;
 
 // 	return 0;
