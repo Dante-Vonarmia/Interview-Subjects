@@ -1,0 +1,102 @@
+一、容器和迭代器
+1.容器：泛型化的数据结构，通过一套统一的标准接口为用户提供不同的逻辑功能。如QList，list等。
+2.迭代器：通过一个抽象类型，使用户可以通过一组一致且透明的方法，以统一的方式访问不同容器中的数据，为泛型算法提供支持。
+二、案例：链表
+1.直接构造空链表
+2.支持深拷贝的拷贝构造和拷贝赋值
+3.提供一组操作接口，如：
+front/push_front/pop_front
+back/push_back/pop_back
+等等
+4.支持内置迭代器类型，以及基于迭代器的插入和删除操作
+List list;
+...
+const List& cr = list;
+cr.front
+3 4 5
+Node* next (Node* p) {
+}
+Node* prev (Node* p) {
+}
+Node* p = next (NULL);
+p = next (p);
+p = next (p);
+int a[5] = {1, 2, 3, 4, 5};
+int* p = a;
+*p
+++p;
+--p;
+const int* cp = a;
+++cp;
+*cp = 100; // ERROR;
+int *const pc;
+const int* cp;
+int* p = cp;
+三、STL概述
+1.标准模板库主要包括三个部分
+1)容器：存储和管理对象的集合。数据结构的泛型化封装。
+2)迭代器：在不暴露容器内部实现细节的前提下，为用户提供访问容器中数据元素的统一方法。
+3)泛型算法：借助于迭代器，以泛型的方式操作容器中的数据元素。
+2.STL的所有组件都是通过模板定义的。支持对数据类型的泛化。
+3.STL所强调的是将数据结构和算法与具体的数据类型独立开来。
+4.STL所追求的是在尽量小的框架内实现最大的弹性。
+四、十大容器
+1.线性容器：向量(vector)、列表(list)、双端队列(deque)
+2.适配器容器：堆栈(stack)、队列(queue)、优先队列(priority_queue)
+3.关联容器：映射(map)、多重映射(multimap)、
+集合(set)、多重集合(multiset)
+五、STL容器的共性
+1.所有的STL容器都提供支持深拷贝的拷贝构造函数和拷贝赋值运算符函数。但是容器中的元素类型也需要支持深拷贝。
+2.容器之间可以进行相等和不等的判断。容器判等的条件是：容器和元素类型都相同，容器中元素的个数相同，对应元素之间满足“==”运算。
+3.容器中保存的永远是被放入对象的副本，而非其本身。
+4.容器中不要放入auto_ptr。
+六、向量
+1.基本特性
+1)用连续的地址空间存放数据元素，因此支持通过下标随机访问其中的元素。
+2)动态内存管理。随着新元素的不断加入，其内存空间自动增长（但是不能自动收缩）。
+3)通过预分配空间降低动态内存管理的开销。
+4)支持在随机位置的插入和删除，但是只有在接近容器尾端进行这两个操作效率才比较高。
+2.实例化
+#include <vector>
+1)空向量
+vector<元素类型> 向量对象;
+vector<int> vi;
+2)指定初始大小
+vector<元素类型> 向量对象 (初始大小);
+vector<int> vi (10);
+基本类型：用0初始化。
+类类型：用缺省构造初始化。
+3)在指定初始大小的同时也指定初值
+vector<元素类型> 向量对象 (初始大小, 初值);
+vector<int> vi (10, 5);
+4)通过其它容器初始化
+int a[5] = {12, 23, 44, 18, 37};
+vector<int> vi (&a[0], &a[5]);
+vector<int> vi (a, a + 5);
+3.迭代器
+1)四个迭代器
+正向迭代器：iterator
+常正向迭代器：const_iterator
+反向迭代器：reverse_iterator
+常反向迭代器：const_reverse_iterator
+2)随机迭代器相对于顺序迭代器而言，增加以下功能：
+和整数的加减运算；
+同型迭代器之间的比较和相减运算。
+4.常用成员函数
+value_type& front (void);
+const value_type& front (void) const;
+value_type& back (void);
+const value_type& back (void) const;
+void push_back (const value_type& val);
+void pop_back (void);
+iterator insert (iterator loc,
+  const value_type& val);
+iterator erase (iterator loc);
+iterator begin (void);
+const_iterator begin (void) const;
+iterator end (void);
+const_iterator end (void) const;
+reverse_iterator rbegin (void);
+const_reverse_iterator rbegin (void) const;
+reverse_iterator rend (void);
+const_reverse_iterator rend (void) const;

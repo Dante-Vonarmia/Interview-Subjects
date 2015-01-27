@@ -1,0 +1,109 @@
+一、双端队列(deque)
+1.双端队列的物理结构与向量几乎完全一样，唯一的区别就是双端队列的首尾两头都是开放的，都可以压入和弹出数据。
+2.接口与向量相比增加了push_front/pop_front函数，去掉了capacity/reserve函数。
+3.性能方面双端队列比向量略差一点。内存消耗比向量多。对元素的访问时间也比向量略长。
+4.空间的对称性决定了双端队列在首尾两端做同样操作的时间复杂度也是对称的。
+二、列表(list)
+1.列表是按照链式线性表(链表)的形式进行存储的。
+2.在列表的任意位置插入/删除都是常数时间的。
+3.不支持下标运算符，也不支持随机迭代。
+4.常用成员函数
+front/push_front/pop_front
+back/push_back/pop_back
+insert/erase
+size/resize/clear/empty
+begin/end/rbegin/rend
+void remove (const value_type& val);
+删除所有匹配元素。
+void unique (void);
+唯一化相邻重复元素。
+void splice (iterator pos, list& lst);
+将参数列表的全部元素剪切到调用列表pos处。
+void splice (iterator pos, list& lst,
+  iterator del);
+将参数列表中del处的元素剪切到调用列表pos处。
+void splice (iterator pos, list& lst,
+  iterator begin, iterator end);
+将参数列表中从begin开始到end之前为止的元素剪切到调用列表的pos处。
+void sort (void);
+void sort (less cmp);
+排序。
+void merge (list& lst); // 通过“<”比大小
+void merge (list& lst, less cmp); // 通过cmp
+                                                      // 比大小
+将有序参数列表中的全部元素剪切到有序调用列表中，并保证调用列表依然有序。
+三、堆栈(stack)
+后进先出
+push    -> push_back
+pop      -> pop_back
+top       -> back
+size       -> size
+empty   -> empty
+stack<元素类型, 底层容器类型> 堆栈对象;
+stack<int, vector<int> > si;
+缺省底层容器是deque。
+四、队列(queue)
+先进先出
+push    -> push_back
+pop      -> pop_front
+front    -> front
+back     -> back
+size       -> size
+empty   -> empty
+不能用向量(vector)作为队列的底层容器。
+缺省底层容器是deque。
+五、优先队列(priority_queue)
+优者先出
+push - 压入
+pop - 弹出
+top - 队首
+priority_queue<元素类型, 底层容器类型>
+用元素类型的“<”比大小，以大者为优。
+priority_queue<元素类型, 底层容器类型, 比较器类型>
+通过比较器比大小，以大者为优。
+底层容器可以使用vector或deque(缺省)。
+六、映射(map)
+1.映射是一个key-value对的序列，其中每个key都是唯一的。
+2.存储方面，映射采用的是平衡有序二叉树的结构。
+3.key的大小比较可以通过其类型的“<”运算符，或者比较器完成。
+4.映射中的数据元素以pair为单位进行存储和访问。pair有两个成员变量，一个叫first对应映射中的key，另一个叫second对应映射中的value。
+5.映射支持顺序迭代，对映射的迭代采用的是中序遍历，所得到的是关于key的有序序列。
+6.支持以key为参数的下标运算符，获取/添加与该key对应的value。
+字符表示key，候选人对象表示value，构成map。
+pair<iterator, bool> insert (conat pair<key_type, value_type>& pair);
+七、多重映射(multimap)
+1.允许key重复，一个key对映多个value。
+A - 100
+A - 200
+A - 300
+2.不支持下标运算符。
+3.常用成员函数
+iterator lower_bound (const key_type& key);
+获取匹配下限，失败返回终止迭代器。
+iterator upper_bound (const key_type& key);
+获取匹配上限，失败返回终止迭代器。
+A - 100
+B - 200 <- lower_bound ('B');
+B - 300
+B - 400
+C - 500 <- upper_bound ('B');
+pair<iterator, iterator> equal_range (const key_type& key);
+同时返回匹配上下限。
+八、集合(set)
+没有value的映射。
+九、多重集合(multiset)
+允许包含重复元素的集合。
+没有value的多重映射。
+iterator lower_bound (const key_type& key);
+获取匹配下限，失败返回终止迭代器。
+iterator upper_bound (const key_type& key);
+获取匹配上限，失败返回终止迭代器。
+A
+B <- lower_bound ('B');
+B
+B
+C<- upper_bound ('B');
+pair<iterator, iterator> equal_range (const key_type& key);
+同时返回匹配上下限。
+十、泛型算法
+以迭代器为媒介可以处理不同容器中不同类型数据元素的通用算法函数。
