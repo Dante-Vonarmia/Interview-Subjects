@@ -16,7 +16,7 @@ using namespace std;
 // 	int a[6]={1,2,3,4,5,6},i,j,k,m;
 // 	for (i = 0; i < 6; ++i)
 // 	{
-// 		cin << a[i];
+// 		cin >> a[i];
 // 	}
 // 	for (i = 5; i >= 0; --i)
 // 	{
