@@ -2,18 +2,27 @@
 #include "string.h"
 using namespace std;
 
-void swap(char *&x, char *&y) { // 指针引用类型
-	char *temp;
-	temp = x;
-	x = y;
-	y = temp;
-}
+// void swap(char *&x, char *&y) { // 指针引用类型
+// 	char *temp;
+// 	temp = x;
+// 	x = y;
+// 	y = temp;
+// }
 // void swap(char **x, char **y) { // 二维指针
 // 	char *temp;
 // 	temp = *x;
 // 	*x = *y;
 // 	*y = temp;
 // }
+// 
+void swap(char *x, char *y) {
+	char temp;
+	// temp = *x;
+	// *x = *y;
+	// *y = temp;
+	*x ^= *y;
+	*y ^= *x;
+}
 
 int main() {
 	char const *ap = "hello";
