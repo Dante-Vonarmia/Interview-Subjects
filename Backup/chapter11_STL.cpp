@@ -359,57 +359,58 @@ using namespace std;
 /* Interview 5 */
 /***************/
 // 把一个文件中的整数排序后输出到另一个文件中
-// #include "fstream"
+#include "fstream"
 
 // 对 data 容器中的所有元素进行冒泡排序
-// void Order(std::vector<int>& data)
-// {
-// 	int count = data.size();
-// 	for (int i = 0; i < count; ++i)
-// 	{
-// 		for (int j = 0; j < count - i - 1; ++j)
-// 		{
-// 			if (data[j] > data[j + 1])
-// 			{
-// 				data[j + 1] ^= data[j];
-// 				data[j] ^= data[j + 1];
-// 				data[j + 1] ^= data[j];
-// 			}
-// 		}
-// 	}
-// }
-// int main(int argc, char const *argv[])
-// {
-// 	std::vector<int> data;
-// 	ifstream in("/Users/fengfan/Documents/MyNote/Interview-Subjects/test.txt");
-// 	if (!in)							// Open output file failed
-// 	{
-// 		cout << "inFile Error!" << endl;
-// 		return 1;
-// 	}
 
-// 	int temp;
-// 	while(!in.eof())
-// 	{
-// 		in >> temp;						// read the data from test.txt
-// 		data.push_back(temp);			// put data into the vector
-// 	}
-// 	in.close();
-// 	Order(data);
-// 	ofstream out("/Users/fengfan/Documents/MyNote/Interview-Subjects/test.txt");
-// 	if (!out)
-// 	{
-// 		cout << "outFile Error!" << endl;
-// 		return 1;
-// 	}
-// 	for (int i = 0; i < data.size(); ++i)
-// 	{
-// 		out << data[i] << " ";			// print the data back to test.txt
-// 	}
-// 	out.close();
+void Order(std::vector<int>& data)
+{
+	int count = data.size();
+	for (int i = 0; i < count; ++i)
+	{
+		for (int j = 0; j < count - i - 1; ++j)
+		{
+			if (data[j] > data[j + 1])
+			{
+				data[j + 1] ^= data[j];
+				data[j] ^= data[j + 1];
+				data[j + 1] ^= data[j];
+			}
+		}
+	}
+}
+int main(int argc, char const *argv[])
+{
+	std::vector<int> data;
+	ifstream in("/Users/fengfan/Development/MyNote/C++_Notes/test.txt");
+	if (!in)							// Open output file failed
+	{
+		cout << "inFile Error!" << endl;
+		return 1;
+	}
 
-// 	return 0;
-// }
+	int temp;
+	while(!in.eof())
+	{
+		in >> temp;						// read the data from test.txt
+		data.push_back(temp);			// put data into the vector
+	}
+	in.close();
+	Order(data);
+	ofstream out("/Users/fengfan/Development/MyNote/C++_Notes/test.txt");
+	if (!out)
+	{
+		cout << "outFile Error!" << endl;
+		return 1;
+	}
+	for (int i = 0; i < data.size(); ++i)
+	{
+		out << data[i] << " ";			// print the data back to test.txt
+	}
+	out.close();
+
+	return 0;
+}
 
 /***************/
 /* Interview 4 */

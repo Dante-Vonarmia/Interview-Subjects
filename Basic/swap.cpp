@@ -33,8 +33,8 @@ int main(int argc, char const *argv[])
 	cout << setw(2) << a2 << " " << setw(2) << b2 << endl;
 	cout << setw(2) << a3 << " " << setw(2) << b3 << endl;
 
-	swap2(a, b);
-	cout << setw(2) << a0 << " " << setw(2) << b0 << endl; // ERROR: Overflow!!
+	// swap2(a, b);
+	// cout << setw(2) << a0 << " " << setw(2) << b0 << endl; // ERROR: Overflow!!
 
 	return 0;
 }

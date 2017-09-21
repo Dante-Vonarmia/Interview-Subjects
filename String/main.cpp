@@ -1,6 +1,6 @@
 #include "iostream"
 #include "String.h"
-// #include "String.cpp"
+#include "String.cpp"
 
 int main(int argc, char const *argv[])
 {
