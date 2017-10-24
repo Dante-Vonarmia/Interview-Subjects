@@ -382,7 +382,7 @@ void Order(std::vector<int>& data)
 int main(int argc, char const *argv[])
 {
 	std::vector<int> data;
-	ifstream in("/Users/fengfan/Development/MyNote/C++_Notes/test.txt");
+	ifstream in("/Users/fengfan/Documents/MyNote/C++_Notes/test.txt");
 	if (!in)							// Open output file failed
 	{
 		cout << "inFile Error!" << endl;
@@ -397,7 +397,7 @@ int main(int argc, char const *argv[])
 	}
 	in.close();
 	Order(data);
-	ofstream out("/Users/fengfan/Development/MyNote/C++_Notes/test.txt");
+	ofstream out("/Users/fengfan/Documents/MyNote/C++_Notes/test.txt");
 	if (!out)
 	{
 		cout << "outFile Error!" << endl;
